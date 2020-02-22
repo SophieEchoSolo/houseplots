@@ -58,3 +58,4 @@ def hbar_chart(sql, file_name, plot_title):
 
 
 hbar_chart(sql = """SELECT region AS label, AVG(rent) AS value FROM houses GROUP BY region ORDER BY value DESC;""", file_name = "rent-per-region.png", plot_title = "Avg Rent By Region")
+hbar_chart(sql = """SELECT region AS label, ROUND(SUM(rent)/SUM(rooms)) AS value FROM houses GROUP BY region ORDER BY value DESC;""", file_name = "rent-per-room-per-region.png", plot_title = "Avg Room Rent By Region")
